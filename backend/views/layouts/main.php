@@ -39,8 +39,8 @@ AppAsset::register($this);
         ['label' => '后台首页', 'url' => ['/site/index']],
         ['label' => '用户管理', 'url' => ['/user/index']],
         ['label' => '用户组管理', 'url' => ['/user-group/index']],
-        ['label' => 'API分类管理', 'url' => ['/category/index']],
-        ['label' => 'API管理', 'url' => ['/api/index']],
+        ['label' => '分类管理', 'url' => ['/category/index']],
+        ['label' => '内容管理', 'url' => ['/content/index']],
         ['label' => '权限控制', 'url' => ['/rbac/index']],
     ];
     if (Yii::$app->user->isGuest) {
