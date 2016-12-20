@@ -38,6 +38,7 @@ class UserGroup extends ActiveRecord
     {
         return [
             [['status', 'sort_order', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'introduce'], 'required'],
             [['name'], 'string', 'max' => 30],
             [['introduce'], 'string', 'max' => 2000],
             [['icon'], 'string', 'max' => 100],
@@ -91,5 +92,25 @@ class UserGroup extends ActiveRecord
     public static function getStatus($status = self::STATUS_NORMAL)
     {
         return self::statusList()[$status];
+    }
+
+    /**
+     * 查询用户组名称或者列表项
+     *
+     * @param string $id
+     * @return array|string
+     */
+    public static function findGroupName($id = '')
+    {
+        $data = $id > 0 ? self::findOne(['id' => $id]) : self::findAll(['status' => self::STATUS_NORMAL]);
+        $res = [];
+        if (count($data) > 1) {
+            foreach ($data as $v) {
+                $res[$v->id] = $v->name;
+            }
+            return $res;
+        } else {
+            return $data->name;
+        }
     }
 }

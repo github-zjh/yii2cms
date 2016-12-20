@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\UserGroup;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -17,6 +18,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'group_id')->dropDownList(UserGroup::findGroupName()) ?>
 
     <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
 

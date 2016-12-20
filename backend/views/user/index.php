@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use dosamigos\datepicker\DatePicker;
+use common\models\User;
+use common\models\UserGroup;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\UserSearch */
@@ -35,13 +37,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'username',
             'email:email',
-            'position',
+            [
+                'attribute' => 'group_id',
+                'value' => function($model) {
+                    return UserGroup::findGroupName($model->group_id);
+                },
+                'filter' => UserGroup::findGroupName(),
+                'headerOptions' => ['width'=> '120']
+            ],
             [
                 'attribute' => 'status',
                 'value' => function($model) {
                     return $model->getStatus($model->status);
                 },
-                'filter' => \common\models\User::statusList(),
+                'filter' => User::statusList(),
                 'headerOptions' => ['width'=> '120']
             ],
             //'created_at:datetime',

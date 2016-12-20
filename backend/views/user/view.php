@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\UserGroup;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -34,10 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'password_hash',
             'password_reset_token',
             'email:email',
+            [
+                'attribute' => 'group_id',
+                'value'     => UserGroup::findGroupName($model->group_id)
+            ],
             'position',
             [
                 'attribute' => 'status',
-                'value' => $model->getStatus($model->status)
+                'value'     => $model->getStatus($model->status)
             ],
             'created_at:datetime',
             'updated_at:datetime',

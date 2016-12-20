@@ -40,7 +40,7 @@ AppAsset::register($this);
         ['label' => '用户管理', 'url' => ['/user/index']],
         ['label' => '用户组管理', 'url' => ['/user-group/index']],
         ['label' => '分类管理', 'url' => ['/category/index']],
-        ['label' => '内容管理', 'url' => ['/content/index']],
+        ['label' => '内容管理', 'url' => ['/post/index']],
         ['label' => '权限控制', 'url' => ['/rbac/index']],
     ];
     if (Yii::$app->user->isGuest) {
