@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\Category */
 
 $this->title = '分类更新: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'API分类管理', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '分类管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = '更新';
 ?>

@@ -8,7 +8,7 @@ use dosamigos\datepicker\DatePicker;
 /* @var $searchModel common\models\CategorySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'API分类管理';
+$this->title = '分类管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-index">
